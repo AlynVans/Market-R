@@ -1,5 +1,7 @@
 package com.example.market_r.screens
 
+import DevicesListScreen
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -33,14 +35,6 @@ fun HomeDevicesScreen() {
         topBar = {
             TopAppBar(
                 title = { Text("Market-R", fontSize = 22.sp) },
-                navigationIcon = {
-//                        IconButton({ }) {
-//                            Icon(
-//                                Icons.Filled.Menu,
-//                                contentDescription = "Меню"
-//                            )
-//                        }
-                },
                 actions = {
                     IconButton({ }) {
                         Icon(
@@ -62,14 +56,16 @@ fun HomeDevicesScreen() {
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.DarkGray,
+                    containerColor = Color.Blue,
                     titleContentColor = Color.LightGray,
                     navigationIconContentColor = Color.LightGray,
                     actionIconContentColor = Color.LightGray
                 )
             )
         }
-    ) {
-        Text("Bruh Bruh Bruh", fontSize = 28.sp, modifier = Modifier.padding(it))
+    ) { innerPadding ->
+        Box(modifier = Modifier.padding(innerPadding)) {
+            DevicesListScreen()
+        }
     }
 }
