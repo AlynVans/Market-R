@@ -9,42 +9,43 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.market_r.R
 
 @Composable
-@Preview
+@Preview (showSystemUi = true)
 fun DevicesListScreen() {
     val devices = remember {
         listOf(
-            Device("ID001", "Working properly", "Model A", "2024-12-31"),
-            Device("ID002", "Needs maintenance", "Model B", "2025-06-30"),
-            Device("ID003", "New device", "Model C", "2024-09-15"),
-            Device("ID004", "Needs replacement", "Model D", "2025-03-31"),
-            Device("ID005", "Under maintenance", "Model E", "2024-11-30"),
-            Device("ID006", "Needs repairs", "Model F", "2025-09-15"),
-            Device("ID007", "Needs cleaning", "Model G", "2025-07-31"),
-            Device("ID008", "Under repair", "Model H", "2024-10-31"),
-            Device("ID009", "Needs repairs", "Model I", "2025-05-15"),
-            Device("ID010", "Needs repairs", "Model J","232=324234-24234"),
-            Device("ID011", "Needs repairs", "Model K", "2025-01-31"),
-            Device("ID012", "Needs repairs", "Model L", "2025-07-31"),
-            Device("ID013", "Needs repairs", "Model M", "2025-03-31"),
+            Device("123456543212456765432", "Working properly", "Меркурий-115/185Ф", "2024-12-31"),
+            Device("123456789876543346345", "Needs maintenance", "Орион-100Ф", "2025-06-30"),
+            Device("098765432345678765434", "New device", "Меркурий-115/185Ф", "2024-09-15"),
+            Device("098765445762498579272", "Needs replacement", "Меркурий-115/185Ф", "2025-03-31"),
+            Device("394857083458374253038", "Under maintenance", "Орион-100Ф", "2024-11-30"),
+            Device("324850987348750233325", "Needs repairs", "Орион-100Ф", "2025-09-15"),
+            Device("324850987348750233325", "Needs cleaning", "Орион-100Ф", "2025-07-31"),
+            Device("123456789876543346345", "Under repair", "Меркурий-115/185Ф", "2024-10-31"),
+            Device("324850987348750233325", "Needs repairs", "Орион-100Ф", "2025-05-15"),
+            Device("324850987348750233325", "Needs repairs", "Меркурий-115/185Ф", "2025-01-91"),
         )
     }
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(20.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            items(devices) { device ->
-                DeviceItem(device)
-            }
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        items(devices) { device ->
+            DeviceItem(device)
         }
     }
+}
+
 @Composable
 fun DeviceItem(device: Device) {
     Card(
@@ -67,10 +68,13 @@ fun DeviceItem(device: Device) {
                     device.modelName,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary
+                    color = Color.Black
                 )
-                IconButton(onClick = { /* Implement edit functionality */ }) {
-                    Icon(Icons.Default.Edit, contentDescription = "Edit")
+                IconButton(onClick = {  }) {
+                    Icon(
+                        imageVector = ImageVector.vectorResource(id = R.drawable.list),
+                        contentDescription = "List",
+                    )
                 }
             }
             Divider(modifier = Modifier.padding(vertical = 8.dp))
